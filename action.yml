@@ -1,0 +1,32 @@
+name: 'Kubeaudit'
+description: 'Github Action to run kubeaudit'
+author: 'Klustair'
+branding:
+  icon: 'command'
+  color: 'blue'
+inputs:
+  commands:
+    description: 'commands to run'
+    required: true
+    default: 'all'
+  path:
+    description: 'path to chart'
+    required: true
+  helmVersion:
+    description: 'helm version'
+    required: false
+  helmv3Version:
+    description: 'helm V3 version'
+    required: false
+  kubeauditVersion:
+    description: 'kubeaudit version'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.commands }}
+    - ${{ inputs.path }}
+    - ${{ inputs.helmVersion }}
+    - ${{ inputs.helmv3Version }}
+    - ${{ inputs.kubeauditVersion }}
