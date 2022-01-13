@@ -2,7 +2,7 @@ name: 'Kubeaudit'
 description: 'Github Action to run kubeaudit'
 author: 'Klustair'
 branding:
-  icon: 'command'
+  icon: 'eye'
   color: 'blue'
 inputs:
   commands:
