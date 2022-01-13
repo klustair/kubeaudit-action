@@ -5,9 +5,9 @@ branding:
   icon: 'eye'
   color: 'blue'
 inputs:
-  commands:
+  kubeauditCommands:
     description: 'commands to run'
-    required: true
+    required: false
     default: 'all'
   path:
     description: 'path to chart'
@@ -15,18 +15,26 @@ inputs:
   helmVersion:
     description: 'helm version'
     required: false
-  helmv3Version:
-    description: 'helm V3 version'
-    required: false
   kubeauditVersion:
+    description: 'kubeaudit version'
+    required: false
+  kubeauditIncludegenerated:
+    description: 'kubeaudit version'
+    required: false
+  kubeauditFormat:
+    description: 'kubeaudit version'
+    required: false
+  kubeauditMinseverity:
     description: 'kubeaudit version'
     required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.commands }}
-    - ${{ inputs.path }}
-    - ${{ inputs.helmVersion }}
-    - ${{ inputs.helmv3Version }}
-    - ${{ inputs.kubeauditVersion }}
+    - ${{ inputs.kubeauditCommands }}           #1
+    - ${{ inputs.path }}                        #2
+    - ${{ inputs.helmVersion }}                 #3
+    - ${{ inputs.kubeauditVersion }}            #4
+    - ${{ inputs.kubeauditIncludegenerated }}   #5
+    - ${{ inputs.kubeauditFormat }}             #6
+    - ${{ inputs.kubeauditMinseverity }}        #7
