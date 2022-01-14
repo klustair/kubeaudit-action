@@ -3,7 +3,7 @@ description: 'Github Action to run kubeaudit'
 author: 'Klustair'
 branding:
   icon: 'eye'
-  color: 'blue'
+  color: 'green'
 inputs:
   path:
     description: 'path to chart'
