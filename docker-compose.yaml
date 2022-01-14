@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  kubeaudit:
+    build: .
+    container_name: kubeaudit-dev
+    entrypoint:
+    - tail
+    - -f
+    - "/dev/null"
+    image: klustair/kubeaudit-action
+    environment:
+      - name=value
+    volumes:
+      - ./test/chart/test:/testchart
+      - ./src:/src
+    working_dir: /
